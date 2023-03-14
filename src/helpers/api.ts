@@ -8,17 +8,18 @@ export function getBaseUrl() {
   return process.env.MARVEL_BASE_URL;
 }
 
-export function getUrlParams(searchValue?: string): string {
+export function getUrlParams(searchValue: string, offset: string): string {
   const timestamp = Date.now();
   const hash = md5(`${timestamp}${privateApiKey}${publicApiKey}`);
 
   const hasSearchValue =
-    searchValue && searchValue.length > 2;
+    searchValue !== "" && searchValue.length > 2;
 
   const data = {
     apikey: publicApiKey,
     ts: String(timestamp),
     hash,
+    offset,
     ...(hasSearchValue && {
       nameStartsWith: searchValue,
     }),
