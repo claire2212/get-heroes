@@ -4,11 +4,15 @@ import Loader from "../loader";
 import HeroCard from "./hero-card";
 import { HeroType } from "@/models/hero";
 import { AxiosError } from "axios";
+import { HeroesContext, HeroesContextType } from "@/context/heroes-context";
+import { useContext } from "react";
 
 const Heroes = () => {
+  const { searchValue } = useContext<HeroesContextType>(HeroesContext);
+  console.log('searchValue', !!searchValue)
   const { isLoading, isError, data, error } = useQuery<HeroType[], AxiosError>(
-    ["heroes"],
-    () => getHeroes()
+    ["heroes", searchValue],
+    () => getHeroes(searchValue),
   );
 
   if (isLoading) return <Loader />;
