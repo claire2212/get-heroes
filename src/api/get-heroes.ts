@@ -1,4 +1,5 @@
 import { formattedUrlParams } from "@/helpers/formatted-url-params";
+import { HeroType } from "@/models/hero";
 import axios from "axios";
 import md5 from "md5";
 
@@ -17,10 +18,8 @@ export async function getHeroes() {
       hash,
     };
   
-    const res = await axios(`${process.env.MARVEL_BASE_URL}?${formattedUrlParams(data)}`);
+    const res = await axios(`${process.env.MARVEL_BASE_URL}characters?${formattedUrlParams(data)}`);
   
     const response = res.data;
-    const heroes = response.data.results ?? [];
-   // console.log('heroes')
-    return heroes;
+    return response.data.results ?? [] as HeroType[];
 }
