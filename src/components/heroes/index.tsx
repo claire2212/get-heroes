@@ -9,7 +9,6 @@ import { useContext } from "react";
 
 const Heroes = () => {
   const { searchValue } = useContext<HeroesContextType>(HeroesContext);
-  console.log('searchValue', !!searchValue)
   const { isLoading, isError, data, error } = useQuery<HeroType[], AxiosError>(
     ["heroes", searchValue],
     () => getHeroes(searchValue),
