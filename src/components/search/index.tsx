@@ -2,16 +2,11 @@ import { HeroesContext } from "@/context/heroes-context";
 import { useContext } from "react";
 
 const Search = () => {
-  const { updateSearchValue } = useContext(HeroesContext);
+  const { updateSearchValue, searchValue } = useContext(HeroesContext);
 
   const onSearchHeroes = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    if (value.length > 2) {
-      return updateSearchValue(value);
-    }
-    if (!value.length) {
-      return updateSearchValue(undefined);
-    }
+    updateSearchValue(value);
   };
   return (
     <div className="relative w-1/2 mx-auto my-8">
@@ -36,6 +31,7 @@ const Search = () => {
         placeholder="Chercher un super-héro"
         required
         onChange={onSearchHeroes}
+        value={searchValue}
       />
     </div>
   );

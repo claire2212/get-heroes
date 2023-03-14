@@ -13,7 +13,7 @@ export function getUrlParams(searchValue?: string): string {
   const hash = md5(`${timestamp}${privateApiKey}${publicApiKey}`);
 
   const hasSearchValue =
-    searchValue && searchValue !== "" && searchValue.length > 2;
+    searchValue && searchValue.length > 2;
 
   const data = {
     apikey: publicApiKey,

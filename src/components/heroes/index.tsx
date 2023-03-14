@@ -9,6 +9,7 @@ import { useContext } from "react";
 
 const Heroes = () => {
   const { searchValue } = useContext<HeroesContextType>(HeroesContext);
+
   const { isLoading, isError, data, error } = useQuery<HeroType[], AxiosError>(
     ["heroes", searchValue],
     () => getHeroes(searchValue),
@@ -21,7 +22,7 @@ const Heroes = () => {
   if (data?.length === 0)
     return (
       <div>
-        Aucun super-héros disponibles, ils sont tous partis sauver le monde
+        Aucun super-héros disponible, ils sont tous partis sauver le monde
       </div>
     );
 
