@@ -23,7 +23,7 @@ const Heroes = () => {
     );
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4 p-10">
       {data?.map((hero: HeroType) => (
         <HeroCard key={hero.id} hero={hero} />
       ))}
