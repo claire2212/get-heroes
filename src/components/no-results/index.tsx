@@ -1,11 +1,11 @@
-import { HeroesContext } from "@/context/heroes-context";
+import { HeroesContext, HeroesContextType } from "@/context/heroes-context";
 import Image from "next/image";
 import { useContext } from "react";
 import Thanos from "../../../public/Thanos.jpeg";
 import Groot from "../../../public/Groot.jpeg"
 
 const NoResults = () => {
-  const { searchValue } = useContext(HeroesContext);
+  const { searchValue } = useContext<HeroesContextType>(HeroesContext);
 
   if (searchValue == "") {
     return (
@@ -32,7 +32,6 @@ const NoResults = () => {
         src={Groot}
         alt="Groot triste"
         width={200}
-        height={200}
         className="m-auto"
       />
     </div>
