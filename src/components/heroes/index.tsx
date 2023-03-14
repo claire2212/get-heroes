@@ -6,6 +6,8 @@ import { HeroType } from "@/models/hero";
 import { AxiosError } from "axios";
 import { HeroesContext, HeroesContextType } from "@/context/heroes-context";
 import { useContext } from "react";
+import NoResults from "../no-results";
+
 
 const Heroes = () => {
   const { searchValue } = useContext<HeroesContextType>(HeroesContext);
@@ -21,9 +23,7 @@ const Heroes = () => {
 
   if (data?.length === 0)
     return (
-      <div>
-        Aucun super-héros disponible, ils sont tous partis sauver le monde
-      </div>
+      <NoResults />
     );
 
   return (
