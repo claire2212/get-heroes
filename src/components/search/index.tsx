@@ -1,22 +1,19 @@
-import { HeroesContext, HeroesContextType } from "@/context/heroes-context";
-import { useContext } from "react";
+import { HeroesContext, HeroesContextType } from "@/context/heroes-context"
+import { useContext } from "react"
 
 const Search = () => {
-  const {
-    updateSearchValue,
-    visibleSearchValue,
-    updateVisibleSearchValue,
-  } = useContext<HeroesContextType>(HeroesContext);
+  const { updateSearchValue, visibleSearchValue, updateVisibleSearchValue } =
+    useContext<HeroesContextType>(HeroesContext)
 
   const onSearchHeroes = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    updateVisibleSearchValue(value);
+    const value = event.target.value
+    updateVisibleSearchValue(value)
     if (value.length > 2) {
-      updateSearchValue(value);
+      updateSearchValue(value)
     } else {
       updateSearchValue("")
     }
-  };
+  }
 
   return (
     <div className="relative w-1/2 mx-auto my-8">
@@ -44,7 +41,7 @@ const Search = () => {
         value={visibleSearchValue}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

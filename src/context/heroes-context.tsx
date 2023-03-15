@@ -1,14 +1,14 @@
-import { FC, createContext, useState } from "react";
+import { FC, createContext, useState } from "react"
 
 export type HeroesContextType = {
-  searchValue: string;
+  searchValue: string
   visibleSearchValue: string
-  updateSearchValue: (searchValue: string) => void;
-  updateVisibleSearchValue: (searchValue: string) => void;
-};
+  updateSearchValue: (searchValue: string) => void
+  updateVisibleSearchValue: (searchValue: string) => void
+}
 
 interface IProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export const HeroesContext = createContext<HeroesContextType>({
@@ -16,11 +16,11 @@ export const HeroesContext = createContext<HeroesContextType>({
   visibleSearchValue: "",
   updateSearchValue: () => null,
   updateVisibleSearchValue: () => null
-});
+})
 
 const HeroesProvider: FC<IProps> = ({ children }) => {
   const [searchValue, setSearchValue] = useState<string>("")
-  const [visibleSearchValue, setVisibleSearchValue]= useState<string>("")
+  const [visibleSearchValue, setVisibleSearchValue] = useState<string>("")
 
   const updateSearchValue = (value: string) => {
     setSearchValue(value)
@@ -31,9 +31,16 @@ const HeroesProvider: FC<IProps> = ({ children }) => {
   }
 
   return (
-    <HeroesContext.Provider value={{ searchValue,visibleSearchValue, updateSearchValue, updateVisibleSearchValue }}>
+    <HeroesContext.Provider
+      value={{
+        searchValue,
+        visibleSearchValue,
+        updateSearchValue,
+        updateVisibleSearchValue
+      }}
+    >
       {children}
     </HeroesContext.Provider>
-  );
-};
-export default HeroesProvider;
+  )
+}
+export default HeroesProvider

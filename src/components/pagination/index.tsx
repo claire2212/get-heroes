@@ -1,19 +1,18 @@
-import { HEROES_PER_PAGE } from "../heroes";
+import { HEROES_PER_PAGE } from "../heroes"
 
 interface IPagination {
-  totalCount: number;
-  offset: number;
-  onChangePage: (offset: number) => void;
+  totalCount: number
+  offset: number
+  onChangePage: (offset: number) => void
 }
 
 const Pagination = ({ totalCount, offset, onChangePage }: IPagination) => {
-
   const onPreviousClick = () => {
-    onChangePage(offset - HEROES_PER_PAGE);
-  };
+    onChangePage(offset - HEROES_PER_PAGE)
+  }
   const onNextClick = () => {
-    onChangePage(offset + HEROES_PER_PAGE);
-  };
+    onChangePage(offset + HEROES_PER_PAGE)
+  }
 
   return (
     <nav
@@ -41,6 +40,6 @@ const Pagination = ({ totalCount, offset, onChangePage }: IPagination) => {
         </li>
       </ul>
     </nav>
-  );
-};
-export default Pagination;
+  )
+}
+export default Pagination

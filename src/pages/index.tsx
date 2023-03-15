@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Search from "@/components/search";
-import Heroes from "@/components/heroes";
+import Head from "next/head"
+import Search from "@/components/search"
+import Heroes from "@/components/heroes"
 
 export default function Home() {
   return (
@@ -16,5 +16,5 @@ export default function Home() {
         <Heroes />
       </main>
     </>
-  );
+  )
 }
